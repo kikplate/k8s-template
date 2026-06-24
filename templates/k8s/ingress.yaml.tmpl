@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: fullstack
+  namespace: {{ .k8sNamespace }}
+spec:
+  rules:
+    - host: {{ .projectName }}.local
+      http:
+        paths:
+          - path: {{ .apiPrefix }}
+            pathType: Prefix
+            backend:
+              service:
+                name: backend
+                port:
+                  number: {{ .appPort }}
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend
+                port:
+                  number: 80

@@ -1,0 +1,52 @@
+name: k8s-template
+owner: kikplate-public
+description: Reusable Kubernetes manifests template for full-stack backend, frontend, and nginx services.
+version: 1.0.0
+
+category: deployment
+
+tags:
+  - kubernetes
+  - k8s
+  - deployment
+  - service
+  - ingress
+
+schema:
+  projectName:
+    type: string
+    default: fullstack-app
+  k8sNamespace:
+    type: string
+    default: default
+  appPort:
+    type: int
+    default: 8000
+  apiPrefix:
+    type: string
+    default: /api
+  backendReplicas:
+    type: int
+    default: 1
+  frontendReplicas:
+    type: int
+    default: 1
+  nginxReplicas:
+    type: int
+    default: 1
+
+files:
+  - path: k8s/backend-deployment.yaml
+    template: https://raw.githubusercontent.com/kikplate/k8s-template/main/templates/k8s/backend-deployment.yaml.tmpl
+  - path: k8s/backend-service.yaml
+    template: https://raw.githubusercontent.com/kikplate/k8s-template/main/templates/k8s/backend-service.yaml.tmpl
+  - path: k8s/frontend-deployment.yaml
+    template: https://raw.githubusercontent.com/kikplate/k8s-template/main/templates/k8s/frontend-deployment.yaml.tmpl
+  - path: k8s/frontend-service.yaml
+    template: https://raw.githubusercontent.com/kikplate/k8s-template/main/templates/k8s/frontend-service.yaml.tmpl
+  - path: k8s/nginx-deployment.yaml
+    template: https://raw.githubusercontent.com/kikplate/k8s-template/main/templates/k8s/nginx-deployment.yaml.tmpl
+  - path: k8s/nginx-service.yaml
+    template: https://raw.githubusercontent.com/kikplate/k8s-template/main/templates/k8s/nginx-service.yaml.tmpl
+  - path: k8s/ingress.yaml
+    template: https://raw.githubusercontent.com/kikplate/k8s-template/main/templates/k8s/ingress.yaml.tmpl
