@@ -2,7 +2,7 @@ name: k8s-template
 owner: kikplate-public
 description: Reusable Kubernetes manifests template for full-stack backend, frontend, and nginx services.
 version: 1.0.0
-
+verification_token: 37f295fe-aa57-4006-8085-7d17a71150a2
 category: deployment
 
 tags:
